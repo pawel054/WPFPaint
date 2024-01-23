@@ -19,6 +19,6 @@ namespace WPFPaint
         public MainWindow()
         {
             InitializeComponent();
-        }
+        }       
     }
 }
