@@ -118,5 +118,6 @@ namespace WPFPaint
                 encoder.Save(fs);
             }
         }
+        }       
     }
 }
