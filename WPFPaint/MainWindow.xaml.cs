@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using Microsoft.Win32;
+using System.IO;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
@@ -91,6 +92,16 @@ namespace WPFPaint
                 {
                     inkCanvas.EditingMode = InkCanvasEditingMode.Ink;
                 }
+            }
+        }
+
+        private void SaveButton_Click(object sender, RoutedEventArgs e)
+        {
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            saveFileDialog.Filter = "Pliki obrazów|*.png;*.bmp;*.jpg|Wszystkie pliki|*.*";
+            if (saveFileDialog.ShowDialog() == true)
+            {
+                SaveAsImage(saveFileDialog.FileName);
             }
         }
 
