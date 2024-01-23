@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using System.IO;
+using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -90,6 +91,20 @@ namespace WPFPaint
                 {
                     inkCanvas.EditingMode = InkCanvasEditingMode.Ink;
                 }
+            }
+        }
+
+        private void SaveAsImage(string fileName)
+        {
+            RenderTargetBitmap rtb = new RenderTargetBitmap((int)inkCanvas.ActualWidth, (int)inkCanvas.ActualHeight, 96d, 96d, PixelFormats.Default);
+            rtb.Render(inkCanvas);
+
+            BitmapEncoder encoder = new PngBitmapEncoder();
+            encoder.Frames.Add(BitmapFrame.Create(rtb));
+
+            using(var fs = new FileStream(fileName, FileMode.Create))
+            {
+                encoder.Save(fs);
             }
         }
     }
