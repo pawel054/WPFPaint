@@ -28,5 +28,14 @@ namespace WPFPaint
         {
             inkCanvas.Strokes.Clear();
         }
+
+        private void ColorPicker_SelectedColorChanged(object sender, RoutedPropertyChangedEventArgs<Color?> e)
+        {
+            if(inkCanvas != null && colorPicker.SelectedColor.HasValue)
+            {
+                Color selectedColor = colorpicker.SelectedColor.Value;
+                inkCanvas.DefaultDrawingAttributes.Color = selectedColor;
+            }
+        }
     }
 }
