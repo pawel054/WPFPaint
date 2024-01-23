@@ -35,7 +35,7 @@ namespace WPFPaint
         {
             if(inkCanvas != null && colorPicker.SelectedColor.HasValue)
             {
-                Color selectedColor = colorpicker.SelectedColor.Value;
+                Color selectedColor = colorPicker.SelectedColor.Value;
                 inkCanvas.DefaultDrawingAttributes.Color = selectedColor;
             }
         }
@@ -117,7 +117,6 @@ namespace WPFPaint
             {
                 encoder.Save(fs);
             }
-        }
-        }       
+        }  
     }
 }
