@@ -46,5 +46,21 @@ namespace WPFPaint
                 inkCanvas.DefaultDrawingAttributes.Height = thicknessSlider.Value;
             }
         }
+
+        private void SelectButton_Click(object sender, RoutedEventArgs e)
+        {
+            selectMode = !selectMode;
+
+            if (selectMode)
+            {
+                selectBtn.Background = new SolidColorBrush(Colors.Gray);
+                inkCanvas.EditingMode = InkCanvasEditingMode.Select;
+            }
+            else
+            {
+                selectBtn.Background = new SolidColorBrush(Colors.Black);
+                inkCanvas.EditingMode = InkCanvasEditingMode.Ink;
+            }
+        }
     }
 }
