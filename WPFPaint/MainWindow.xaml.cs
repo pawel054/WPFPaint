@@ -62,5 +62,20 @@ namespace WPFPaint
                 inkCanvas.EditingMode = InkCanvasEditingMode.Ink;
             }
         }
+
+        private void EraseButton_Click(Object sender, RoutedEventArgs e)
+        {
+            eraseMode = !eraseMode;
+            if(eraseMode)
+            {
+                inkCanvas.EditingMode = InkCanvasEditingMode.EraseByPoint;
+                eraseBtn.Background = new SolidColorBrush(Colors.Gray);
+            }
+            else
+            {
+                inkCanvas.DefaultDrawingAttributes.Color = colorPicker.SelectedColor ?? Colors.Black;
+                eraseBtn.Background = new SolidColorBrush(Colors.Black);
+            }
+        }
     }
 }
