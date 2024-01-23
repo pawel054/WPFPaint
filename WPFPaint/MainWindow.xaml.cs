@@ -37,5 +37,14 @@ namespace WPFPaint
                 inkCanvas.DefaultDrawingAttributes.Color = selectedColor;
             }
         }
+
+        private void ThicknessSlider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        {
+            if(inkCanvas != null && thicknessSlider != null)
+            {
+                inkCanvas.DefaultDrawingAttributes.Width = thicknessSlider.Value;
+                inkCanvas.DefaultDrawingAttributes.Height = thicknessSlider.Value;
+            }
+        }
     }
 }
